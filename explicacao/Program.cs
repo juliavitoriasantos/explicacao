@@ -48,7 +48,7 @@ namespace explicacao
         {
             WriteLine("Informação do Principal");
             WindowsPrincipal principal = new WindowsPrincipal(identity);
-            //Imprime um cabeçalho no console escrito "Informação do Principal"
+            //Imprime "Informação do Principal"
             if (principal == null)
             {
                 WriteLine("Não é um Windows Principal");
@@ -64,13 +64,20 @@ namespace explicacao
         public static void ExibeInfoClaims(IEnumerable<Claim> claims)
         {
             WriteLine("Declarações (Claims) ");
+            //Imprime "Declarações (Clains)"
+
             foreach (var claim in claims)
             {
                 WriteLine($"Assunto : {claim.Subject}");
+                WriteLine("Acessa a propriedade Subject do claim.\n");
                 WriteLine($"Emissor : {claim.Issuer}");
+                WriteLine($"Mostra o emissor (issuer) da claim.\n");
                 WriteLine($"Tipo : {claim.Type}");
+                WriteLine($"Mostra o tipo da claim, ou seja, o que ela representa.\n"); 
                 WriteLine($"Valor do Tipo : {claim.ValueType}");
+                WriteLine($"Mostra o tipo de dado do valor contido na claim.\n");
                 WriteLine($"Valor : {claim.Value}");
+                WriteLine($"Mostra o valor real da claim.\n");
                 foreach (var prop in claim.Properties)
                 {
                     WriteLine($"\tProperty: {prop.Key} {prop.Value}");
